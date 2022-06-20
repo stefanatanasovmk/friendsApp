@@ -1,0 +1,54 @@
+
+<%if user_signed_in?%>
+<div class="card">
+<h5 class="card-header font-monospace">Friends</h5>
+<div class="card-body">
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr class="table-dark">
+      <th class="font-monospace" scope="col">Name</th>
+      <%# <th scope="col">Last name</th> %>
+      <th class="font-monospace" scope="col">Email</th>
+      <th class="font-monospace" scope="col">Phone</th>
+      <th class="font-monospace" scope="col">Twitter</th>
+      <th class="font-monospace" scope="col">Created By</th>
+      <%if user_signed_in?%>
+      <th class="font-monospace" colspan="2" scope="col"></th>
+      <%end%>
+    </tr>
+  </thead>
+  <tbody>
+ <% @friends.each do |friend| %>
+ <%if friend.user==current_user%>
+    <tr>
+      <td>
+      <%= link_to friend.first_name+ " " + friend.last_name, friend %>
+     
+      <td class="font-monospace"><%= friend.email %></td>
+      <td class="font-monospace"><%= friend.phone %></td>
+      <td class="font-monospace"><%= friend.twitter %></td>
+      <td class="font-monospace"><%= friend.user_id %></td>
+      <%if friend.user == current_user  %>
+      <td class="font-monospace"><%= link_to "Edit", edit_friend_path(friend), class:"btn btn-outline-warning" %></td>
+      <td class="font-monospace"><%= button_to "Delete", friend, class:"btn btn-outline-danger", method: :delete %></td>
+      <% elsif user_signed_in?%>
+      <td class="font-monospace"></td>
+      <td class="font-monospace"></td>
+      <%end%>
+    </tr>
+     <% end %>
+     <%end%>
+  </tbody>
+</table>
+<%= link_to "Add a friend", new_friend_path, class:"btn btn-secondary font-monospace" %>
+
+</div>
+</div>
+<%else%>
+
+<h1>Hello world</h1>
+
+
+
+<% end %>
