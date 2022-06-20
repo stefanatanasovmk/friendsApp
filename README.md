@@ -1,24 +1,8 @@
-# README
+# Friend App build from FreeCodeCamp tutorial
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Started learning Ruby and Ruby on Rails and build this app with a help from a course on Free Code Camp
 
-* Ruby version
+* Interesting framework, very opinionated, but very easy to use and perfect for building apps very fast.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* With Express, the authentication, would take me maybe a day to build, in Rails, one line in the console and BUM !
